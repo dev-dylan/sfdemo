@@ -1,0 +1,73 @@
+[{
+    "icon":"item_icon1",
+    "large_icon":"large_item_icon1",
+    "tag":"限时秒杀",
+    "store":"水果旗舰店",
+    "content":"智能体脂秤体重称成人质精准家用官方监测运动脂肪健康男女生迷你多功能减肥称瘦身婴儿称专业秤",
+    "price":"299.00",
+    "goodsId":"10010",
+    "sku":"太空银",
+    "first_commodity":"3C",
+    "second_commodity":"体脂秤",
+    "original_price":"888.88"
+},{
+    "icon":"item_icon2",
+    "large_icon":"large_item_icon2",
+    "tag":"",
+    "store":"手表旗舰店",
+    "content":"运动智能手表3蓝牙通话音乐雅致商务男女手环防水官方正品旗舰gt2",
+    "price":"455.00",
+    "goodsId":"10011",
+    "sku":"中国红",
+    "first_commodity":"3C",
+    "second_commodity":"手表",
+    "original_price":"699.00"
+},{
+    "icon":"item_icon3",
+    "large_icon":"large_item_icon3",
+    "tag":"大牌自营",
+    "store":"官方旗舰店",
+    "content":"[11.11抢先加购]肌肤之钥CPB口红 光魅幻色唇膏哑光滋润持久#103",
+    "price":"99.00",
+    "goodsId":"10012",
+    "sku":"女王色",
+    "first_commodity":"化妆品",
+    "second_commodity":"口红",
+    "original_price":"199.00"
+},{
+    "icon":"item_icon1",
+    "large_icon":"large_item_icon1",
+    "tag":"限时秒杀",
+    "store":"水果旗舰店",
+    "content":"智能体脂秤体重称成人质精准家用官方监测运动脂肪健康男女生迷你多功能减肥称瘦身婴儿称专业秤",
+    "price":"299.00",
+    "goodsId":"10010",
+    "sku":"太空银",
+    "first_commodity":"3C",
+    "second_commodity":"体脂秤",
+    "original_price":"888.88"
+},{
+    "icon":"item_icon2",
+    "large_icon":"large_item_icon2",
+    "tag":"",
+    "store":"手表旗舰店",
+    "content":"运动智能手表3蓝牙通话音乐雅致商务男女手环防水官方正品旗舰gt2",
+    "price":"455.00",
+    "goodsId":"10011",
+    "sku":"中国红",
+    "first_commodity":"3C",
+    "second_commodity":"手表",
+    "original_price":"699.00"
+},{
+    "icon":"item_icon3",
+    "large_icon":"large_item_icon3",
+    "tag":"大牌自营",
+    "store":"官方旗舰店",
+    "content":"[11.11抢先加购]肌肤之钥CPB口红 光魅幻色唇膏哑光滋润持久#103",
+    "price":"99.00",
+    "goodsId":"10012",
+    "sku":"女王色",
+    "first_commodity":"化妆品",
+    "second_commodity":"口红",
+    "original_price":"199.00"
+}]

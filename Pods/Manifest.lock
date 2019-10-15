@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (4.9.0)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - JCore (2.1.2)
+  - JPush (3.2.4):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - SensorsAnalyticsSDK (1.11.12):
+    - SensorsAnalyticsSDK/core (= 1.11.12)
+  - SensorsAnalyticsSDK/core (1.11.12)
+  - SnapKit (4.2.0)
+  - SwiftLint (0.35.0)
+  - Toast-Swift (5.0.0)
+
+DEPENDENCIES:
+  - AlamofireImage
+  - JPush
+  - SensorsAnalyticsSDK
+  - SnapKit
+  - SwiftLint
+  - Toast-Swift (~> 5.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - JCore
+    - JPush
+    - SensorsAnalyticsSDK
+    - SnapKit
+    - SwiftLint
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  JCore: 1a426120b510cdebfd67b82bfb9483238ee09413
+  JPush: 29466e5f30dbd703f640d70540e411e829cac1fa
+  SensorsAnalyticsSDK: c9d449196d5e7e043f2283413c60ecb3a3b20ccc
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
+
+PODFILE CHECKSUM: eddabdc594b3a2bb85a56d8ff8c38cf9f4658609
+
+COCOAPODS: 1.7.5

@@ -1,0 +1,6 @@
+framework module Pods_SensorsFocus {
+  umbrella header "Pods-SensorsFocus-umbrella.h"
+
+  export *
+  module * { export * }
+}
