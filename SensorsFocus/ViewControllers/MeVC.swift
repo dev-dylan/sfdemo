@@ -29,7 +29,7 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
     }
 
     func didSelectedHeader() {
-        if isLogin() {
+        if !isLogin() {
             LoginVC.showLogin(navigationController!, delegate: self)
         }
     }
@@ -39,6 +39,7 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
         let left = UIAlertAction.init(title: "取消", style: .default, handler: nil)
         let right = UIAlertAction.init(title: "确认", style: .default) { (_) in
             saveUsername("")
+            saveCouponFlag(false)
             self.reloadUserInfo()
         }
         alert.addAction(left)

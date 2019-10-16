@@ -107,6 +107,6 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
 
     //custom mehtods
     func showActivityScreen() {
-        ActivityVC.showActivityScreen(navigationController!, urlStr: "https://www.baidu.com")
+        ActivityVC.showActivityScreen(navigationController!, urlStr: kActivityURL)
     }
 }

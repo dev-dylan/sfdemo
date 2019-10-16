@@ -18,3 +18,5 @@ let kTabBarHeight: CGFloat = isIphoneX ? 34.0 + 49.0 : 49.0
 
 let kUnderColor = UIColor.hex("F8F8F8")
 let kCornerRadius: CGFloat = 8.5
+
+let kActivityURL = "https://www.sensorsdata.cn/uploads/bab40966122c07509adedaef8d522ef4/index.html"

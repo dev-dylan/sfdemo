@@ -10,7 +10,7 @@ import Foundation
 
 func isLogin() -> Bool {
     let username = UserDefaults.standard.object(forKey: "username") as? String
-    return username != nil
+    return username != nil && !username!.isEmpty
 }
 
 func currentUsername() -> String {

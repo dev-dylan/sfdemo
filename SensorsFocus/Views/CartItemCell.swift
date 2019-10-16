@@ -121,18 +121,13 @@ class CartItemCell: UITableViewCell {
     }
 
     @IBAction func couponAction(_ sender: Any) {
-
         if receivedCoupon() {
             self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
             return
         }
-
-        saveCouponFlag(true)
-        let properties = ["discount_name": "限时优惠券", "discount_amount": "10.00", "discount_type": "全网活动"]
-        Track.track("ReceiveDiscount", properties: properties)
         delegate.updatedCurrentGoodsItem()
         let navc = self.managerController()?.navigationController
-        ActivityVC.showActivityScreen(navc!, urlStr: "https://pro.jd.com/mall/active/3PsCKhiZ1HFKXuTtNsWdu1qmgbJ5/index.html?jd_pop=e0a18aea-c5ad-42a5-a6cb-7854c12ddb6f&utm_source=www.jd.com&utm_medium=zssc&utm_campaign=t_0_&utm_term=e0a18aea-c5ad-42a5-a6cb-7854c12ddb6f-p_132524")
+        ActivityVC.showActivityScreen(navc!, urlStr: kActivityURL)
     }
 
     func updateCoupon(_ hasCoupon: Bool) {

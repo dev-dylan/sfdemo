@@ -26,7 +26,7 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
     var placeholders = [UIImageView]()
     var currentPage = 0
     var images: [[String: String]] {
-        var array = [["image": "banner2", "goodsId": "10010"], ["image": "banner3", "goodsId": "10011"]]
+        var array = [["image": "banner2", "goodsId": "10010"], ["image": "banner3", "goodsId": "10011"], ["image": "banner4", "goodsId": "10012"]]
         if !receivedCoupon() {
             let item = ["image": "banner1", "goodsId": isActivitiyId]
             array.insert(item, at: 0)

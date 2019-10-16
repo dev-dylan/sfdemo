@@ -27,14 +27,24 @@ class ActivityVC: BaseVC {
 
         webview = WKWebView.init(frame: view.bounds)
         webview.backgroundColor = .clear
+        if #available(iOS 11.0, *) {
+            webview.scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            //TODO: ios 11 以下测试
+            self.edgesForExtendedLayout = .all
+        }
         view.addSubview(webview)
 
         let url = URL.init(string: urlStr ?? "")
         let request = URLRequest.init(url: url!)
         webview.load(request)
 
-        //TODO: 判断是否为活动页面
-        saveCouponFlag(true)
+        if urlStr == kActivityURL {
+            saveCouponFlag(true)
+            let properties = ["discount_name": "限时优惠券", "discount_amount": "10.00", "discount_type": "全网活动"]
+            Track.track("ReceiveDiscount", properties: properties)
+
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
