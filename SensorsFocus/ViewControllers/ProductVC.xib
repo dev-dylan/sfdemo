@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductVC" customModule="SensorsFocus" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductVC" customModule="神策商城" customModuleProvider="target">
             <connections>
                 <outlet property="addCart" destination="kdC-pX-ptK" id="U0d-pE-oSC"/>
                 <outlet property="container" destination="82s-Me-76a" id="A9O-2D-AIJ"/>

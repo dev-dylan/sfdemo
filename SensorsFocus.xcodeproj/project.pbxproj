@@ -30,6 +30,7 @@
 		FC3B9E022339EA20003E19D5 /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B9E012339EA20003E19D5 /* BaseAdapter.swift */; };
 		FC3B9E04233A0163003E19D5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B9E03233A0163003E19D5 /* UIColor.swift */; };
 		FC62CB64234F2699002A80FE /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC62CB63234F2699002A80FE /* Placeholder.swift */; };
+		FC7438962355CDD200CE9C97 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7438952355CDD200CE9C97 /* ActivityVC.swift */; };
 		FC7C37E3233A07A0007354CD /* ItemsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37E2233A07A0007354CD /* ItemsAdapter.swift */; };
 		FC7C37E5233A0807007354CD /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37E4233A0807007354CD /* BannerCell.swift */; };
 		FC7C37E7233A0819007354CD /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37E6233A0819007354CD /* CategoriesCell.swift */; };
@@ -104,6 +105,7 @@
 		FC3B9E03233A0163003E19D5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FC62CB63234F2699002A80FE /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		FC62CB65234F304E002A80FE /* SensorsFocus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SensorsFocus.entitlements; sourceTree = "<group>"; };
+		FC7438952355CDD200CE9C97 /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		FC7C37E2233A07A0007354CD /* ItemsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsAdapter.swift; sourceTree = "<group>"; };
 		FC7C37E4233A0807007354CD /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		FC7C37E6233A0819007354CD /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				FCE32AD42341A51B00EAD953 /* ProductVC.swift */,
 				FCFF9185234DCDB100D4706A /* ProductVC.xib */,
 				FC62CB63234F2699002A80FE /* Placeholder.swift */,
+				FC7438952355CDD200CE9C97 /* ActivityVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				FC7C37E7233A0819007354CD /* CategoriesCell.swift in Sources */,
 				FC1A0074233B57AF00204D6F /* Macro.swift in Sources */,
 				FCD07D2F233DF1D000A23C86 /* AvatarCell.swift in Sources */,
+				FC7438962355CDD200CE9C97 /* ActivityVC.swift in Sources */,
 				FC7EED4E233E191A009E7CCF /* TabBarVC.swift in Sources */,
 				FCE32AD32340BF3600EAD953 /* Array.swift in Sources */,
 				FC7C37EB233A0844007354CD /* TopicCell.swift in Sources */,

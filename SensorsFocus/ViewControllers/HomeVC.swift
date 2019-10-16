@@ -57,13 +57,11 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
 
     func didSelectedBanner(_ itemId: String) {
         if itemId == loginId {
-            let login = LoginVC.init()
-            login.delegate = self
-            self.present(login, animated: true, completion: nil)
+            LoginVC.showLogin(navigationController!, delegate: self)
         }
 
         if itemId == activitiyId {
-            //跳转到双十一活动页
+            ActivityVC.showActivityScreen(navigationController!, urlStr: "https://www.baidu.com")
         }
 
         var item: GoodsItem?

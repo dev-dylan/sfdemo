@@ -71,46 +71,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
        let userInfo = response.notification.request.content.userInfo
         if response.notification.request.trigger is UNPushNotificationTrigger {
             JPUSHService.handleRemoteNotification(userInfo)
+            self.trackSFAppNotification(userInfo)
         }
         completionHandler()
+    }
+
+    func trackSFAppNotification(_ userInfo: [AnyHashable: Any]) {
+        var properties = [String: Any]()
+        let string = userInfo["sf_data"] as? String
+        let data = string?.data(using: .utf8)
+        var urlStr = ""
+        do {
+            let json = try JSONSerialization.jsonObject(with: data ?? Data.init(), options: .mutableContainers)
+            let dic = json as? [String: Any]
+            properties["$sf_plan_id"] = dic?["sf_plan_id"]
+            properties["$sf_plan_name"] = dic?["sf_plan_name"]
+            properties["$sf_audience_id"] = dic?["sf_audience_id"]
+            properties["$sf_plan_strategy_id"] = dic?["sf_plan_strategy_id"]
+            if dic?["$sf_landing_type"] as? String == "LINK" {
+                properties["$sf_link_url"] = dic?["sf_link_url"]
+                urlStr = (dic?["sf_link_url"] as? String)!
+            }
+            let custom = properties["customized"]
+            if custom is [String: Any] {
+                //处理自定义字段
+            }
+        } catch _ {
+            print("透传消息解析数据失败")
+        }
+        let aps = userInfo["aps"] as? [String: Any]
+        let alert = aps?["alert"]
+        if alert is [String: Any] {
+            let newAlert = alert as? [String: Any]
+            properties["$sf_msg_title"] = newAlert?["title"]
+            properties["$sf_msg_content"] = newAlert?["body"]
+        } else if alert is String {
+            properties["$sf_msg_content"] = alert
+        }
+        SensorsAnalyticsSDK.sharedInstance()?.track("AppOpenNotification", withProperties: properties)
+
+        if !urlStr.isEmpty {
+            let root = self.window?.rootViewController as? UITabBarController
+            let navc = root?.viewControllers![root!.selectedIndex] as? UINavigationController
+            ActivityVC.showActivityScreen(navc!, urlStr: urlStr)
+        }
     }
 
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
         //打开推送设置
-    }
-
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        JPUSHService.handleRemoteNotification(userInfo)
-        let couponName = userInfo["discount_name"]
-        let goodsId = userInfo["goodaId"] as? String
-        if couponName != nil && goodsId != nil {
-            let goodsList = Goods.goodsList()
-            var result = -1
-            for index in 0..<goodsList.count {
-                let itemId = goodsList[index]["goodsId"]
-                if itemId == goodsId {
-                    result = index
-                }
-            }
-            if result > -1 {
-                var item = goodsList[result]
-                item["discount_name"] = "限时优惠券"
-                item["discount_amount"] = "10.00"
-                item["discount_type"] = "全网活动"
-                Goods.updateGoods(item)
-            }
-        }
-
-        var properties = [String: Any]()
-        properties["$sf_msg_title"] = userInfo["sf_msg_title"]
-        properties["$sf_msg_content"] = userInfo["sf_msg_content"]
-        properties["$sf_link_url"] = userInfo["sf_link_url"]
-        properties["$sf_plan_id"] = userInfo["sf_plan_id"]
-        properties["$sf_audience_id"] = userInfo["sf_audience_id"]
-        properties["$sf_plan_strategy_id"] = userInfo["sf_plan_strategy_id"]
-        SensorsAnalyticsSDK.sharedInstance()?.track("AppOpenNotification", withProperties: properties)
-        completionHandler(UIBackgroundFetchResult.newData)
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

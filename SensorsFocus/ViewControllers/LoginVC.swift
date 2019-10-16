@@ -23,6 +23,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordIndicator: UIView!
     weak var delegate: LoginSuccessDelegate?
 
+    static func showLogin(_ viewController: UINavigationController, delegate: LoginSuccessDelegate) {
+        let login = LoginVC.init()
+        login.delegate = delegate
+        OperationQueue.main.addOperation {
+            viewController.present(login, animated: true, completion: nil)
+        }
+    }
+
     init() {
         super.init(nibName: "LoginVC", bundle: nil)
     }

@@ -37,10 +37,23 @@ class ItemCell: UITableViewCell {
         leftTag.layer.masksToBounds = true
         leftTag.layer.cornerRadius = 9
 
+        let itemSize = (kScreenWidth - 30) / 2.0
+        let rect = CGRect.init(x: 0, y: 0, width: itemSize, height: itemSize)
+        let path = UIBezierPath.init(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: .init(width: kCornerRadius, height: kCornerRadius))
+        let leftLayer = CAShapeLayer.init()
+        leftLayer.frame = leftImage.bounds
+        leftLayer.path = path.cgPath
+        leftImage.layer.mask = leftLayer
+
         rightProduct.layer.cornerRadius = kCornerRadius
         rightProduct.setShadow()
         rightTag.layer.masksToBounds = true
         rightTag.layer.cornerRadius = 9
+
+        let rightLayer = CAShapeLayer.init()
+        rightLayer.frame = rightImage.bounds
+        rightLayer.path = path.cgPath
+        rightImage.layer.mask = rightLayer
 
         let leftTap = UITapGestureRecognizer.init(target: self, action: #selector(productTap))
         leftProduct.addGestureRecognizer(leftTap)

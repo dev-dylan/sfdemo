@@ -30,13 +30,8 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
 
     func didSelectedHeader() {
         let username = UserDefaults.standard.object(forKey: "username") as? String
-        print("点击触发登录页面")
         if username == nil {
-            let login = LoginVC.init()
-            login.delegate = self
-            print("推出登录页面")
-            self.present(login, animated: true, completion: nil)
-            print("已经推出登录页面")
+            LoginVC.showLogin(navigationController!, delegate: self)
         }
     }
 

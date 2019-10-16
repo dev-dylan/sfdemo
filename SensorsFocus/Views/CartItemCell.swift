@@ -122,23 +122,25 @@ class CartItemCell: UITableViewCell {
 
     @IBAction func couponAction(_ sender: Any) {
 
-        if goodsItem!["discount_name"] != nil {
-            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
-            return
-        }
+//        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
+//        if received {
+//            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
+//            return
+//        }
+
+        UserDefaults.standard.set(true, forKey: receivedActivityCouponKey)
         let properties = ["discount_name": "限时优惠券", "discount_amount": "10.00", "discount_type": "全网活动"]
         SensorsAnalyticsSDK.sharedInstance()?.track("ReceiveDiscount", withProperties: properties)
-        goodsItem!["discount_name"] = "限时优惠券"
-        goodsItem!["discount_amount"] = "10.00"
-        goodsItem!["discount_type"] = "全网活动"
-        Goods.updateGoods(goodsItem!)
         delegate.updatedCurrentGoodsItem()
+        let navc = self.managerController()?.navigationController
+        ActivityVC.showActivityScreen(navc!, urlStr: "https://pro.jd.com/mall/active/3PsCKhiZ1HFKXuTtNsWdu1qmgbJ5/index.html?jd_pop=e0a18aea-c5ad-42a5-a6cb-7854c12ddb6f&utm_source=www.jd.com&utm_medium=zssc&utm_campaign=t_0_&utm_term=e0a18aea-c5ad-42a5-a6cb-7854c12ddb6f-p_132524")
     }
 
     func updateCoupon(_ hasCoupon: Bool) {
-        couponHeight.constant = hasCoupon ? 40.0 : 0.0
-        couponContainer.isHidden = !hasCoupon
-        contentContainer.backgroundColor = hasCoupon ? .init(hexString: "F9F9F9") : .white
+        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey) && hasCoupon
+        couponHeight.constant = received ? 40.0 : 0.0
+        couponContainer.isHidden = !received
+        contentContainer.backgroundColor = received ? .init(hexString: "F9F9F9") : .white
         self.layoutIfNeeded()
     }
 }

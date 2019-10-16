@@ -29,8 +29,7 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mask?.isHidden = true
-        let height = kScreenHeight - kStatusBarHeught - kTabBarHeight
-        tableView.frame = .init(x: 0, y: kStatusBarHeught, width: kScreenWidth, height: height)
+        tableView.frame = .init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight - kTabBarHeight)
         adapter = ProductAdapter.init(tableView, delegate: self)
         adapter?.item = item
         adapter?.reload()
@@ -50,6 +49,7 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
         number.layer.borderWidth = 0.5
         number.text = "\(Goods.goodsList().count)"
 
+        view.bringSubviewToFront(container)
         let rightButton = UIButton.init(type: .custom)
         rightButton.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
         rightButton.setImage(UIImage.init(named: "more"), for: .normal)

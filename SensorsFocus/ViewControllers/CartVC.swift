@@ -104,7 +104,14 @@ class CartVC: BaseVC, CartAdapterDelegate {
         properties["order_id"] = orderId
         properties["order_amount"] = action.purchase.titleLabel?.text
         properties["order_actual_amount"] = "\(originalTotal)"
-        properties["if_use_discount"] = false
+
+        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
+        if received {
+            properties["discount_name"] = "限时优惠券"
+            properties["discount_amount"] = "10.00"
+            properties["discount_type"] = "全网活动"
+        }
+        properties["if_use_discount"] = received
         SensorsAnalyticsSDK.sharedInstance()?.track("PayOrder", withProperties: properties)
 
         let all = Goods.goodsList()

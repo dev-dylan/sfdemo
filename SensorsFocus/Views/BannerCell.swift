@@ -27,8 +27,8 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
     var currentPage = 0
     var images: [[String: String]] {
         var array = [["image": "banner2", "goodsId": "10010"], ["image": "banner3", "goodsId": "10011"]]
-        let didReceived = UserDefaults.standard.object(forKey: "double_eleven_did_received") as? Bool
-        if didReceived == nil || !(didReceived!) {
+        let didReceived = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
+        if !didReceived {
             let item = ["image": "banner1", "goodsId": activitiyId]
             array.insert(item, at: 0)
         }
