@@ -35,7 +35,7 @@ class ItemCell: UITableViewCell {
         leftProduct.layer.cornerRadius = kCornerRadius
         leftProduct.setShadow()
         leftTag.layer.masksToBounds = true
-        leftTag.layer.cornerRadius = 9
+        leftTag.layer.cornerRadius = 7.5
 
         let itemSize = (kScreenWidth - 30) / 2.0
         let rect = CGRect.init(x: 0, y: 0, width: itemSize, height: itemSize)
@@ -48,7 +48,7 @@ class ItemCell: UITableViewCell {
         rightProduct.layer.cornerRadius = kCornerRadius
         rightProduct.setShadow()
         rightTag.layer.masksToBounds = true
-        rightTag.layer.cornerRadius = 9
+        rightTag.layer.cornerRadius = 7.5
 
         let rightLayer = CAShapeLayer.init()
         rightLayer.frame = rightImage.bounds

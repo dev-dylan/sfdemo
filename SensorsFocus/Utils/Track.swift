@@ -21,7 +21,7 @@ class Track {
         sdk?.registerDynamicSuperProperties({ () -> [String: Any] in
             return ["testRandomNum": Int.random(in: 0...100)]
         })
-        sdk?.enableLog(false)
+        sdk?.enableLog(true)
         sdk?.addWebViewUserAgentSensorsDataFlag()
         sdk?.trackInstallation("AppInstall", withProperties: ["testInstall": "testValue"])
         sdk?.enableTrackGPSLocation(true)
