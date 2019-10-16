@@ -16,5 +16,5 @@ let kNaviBarHeight = kStatusBarHeught + 44.0
 let isIphoneX = kStatusBarHeught >= 44.0
 let kTabBarHeight: CGFloat = isIphoneX ? 34.0 + 49.0 : 49.0
 
-let kUnderColor = UIColor.init(hexString: "F8F8F8")
+let kUnderColor = UIColor.hex("F8F8F8")
 let kCornerRadius: CGFloat = 8.5

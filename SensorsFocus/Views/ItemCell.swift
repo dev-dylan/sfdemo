@@ -89,7 +89,7 @@ class ItemCell: UITableViewCell {
         leftImage.image = UIImage(named: left["icon"]!)
         let leftTagText = left["tag"]
         leftTag.setTitle(leftTagText, for: .normal)
-        leftTag.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+        leftTag.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
 
         let noTag = leftTagText!.isEmpty
         leftTag.isHidden = noTag
@@ -100,7 +100,7 @@ class ItemCell: UITableViewCell {
             let right = array[1]
 
             rightImage.image = UIImage(named: right["icon"]!)
-            rightTag.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+            rightTag.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
             let rightTagText = right["tag"]
             rightTag.setTitle(rightTagText, for: .normal)
             let noTag = rightTagText!.isEmpty

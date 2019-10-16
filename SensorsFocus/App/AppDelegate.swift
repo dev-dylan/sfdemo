@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
         sdk?.registerDynamicSuperProperties({ () -> [String: Any] in
             return ["testRandomNum": Int.random(in: 0...100)]
         })
-        sdk?.enableLog(true)
+        sdk?.enableLog(false)
         sdk?.addWebViewUserAgentSensorsDataFlag()
         sdk?.trackInstallation("AppInstall", withProperties: ["testInstall": "testValue"])
         sdk?.enableTrackGPSLocation(true)

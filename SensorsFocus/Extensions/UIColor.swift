@@ -11,10 +11,10 @@ import UIKit
 
 extension UIColor {
     // Hex String -> UIColor
-    convenience init(hexString: String) {
+
+    static func hex(_ hexString: String) -> UIColor {
         let hexString = hexString.trimmingCharacters(in: .whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
-
         if hexString.hasPrefix("#") {
             scanner.scanLocation = 1
         }
@@ -31,11 +31,7 @@ extension UIColor {
         let green = CGFloat(gGamut) / 255.0
         let blue  = CGFloat(bGamut) / 255.0
 
-        self.init(red: red, green: green, blue: blue, alpha: 1)
-    }
-
-    func gradientColor(_ fromColor: UIColor, to color: UIColor) {
-
+        return .init(red: red, green: green, blue: blue, alpha: 1)
     }
 
     // UIColor -> Hex String

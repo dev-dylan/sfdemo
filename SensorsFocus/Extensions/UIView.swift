@@ -36,7 +36,7 @@ extension UIView {
     }
 
     func setShadow() {
-        self.setShadow(sColor: .init(hexString: "C8C8C8"), offset: .init(width: 0, height: 0), opacity: 0.2, radius: 3)
+        self.setShadow(sColor: .hex("C8C8C8"), offset: .init(width: 0, height: 0), opacity: 0.2, radius: 3)
     }
 
     func setShadow(sColor: UIColor, offset: CGSize, opacity: Float, radius: CGFloat) {

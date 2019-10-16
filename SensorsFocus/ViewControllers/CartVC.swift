@@ -93,25 +93,22 @@ class CartVC: BaseVC, CartAdapterDelegate {
             Goods.updateGoods(item)
         }
         self.updateCartItems()
-        print("全选")
     }
 
     @objc func purchaseAction(_ sender: Any) {
-        print("购买按钮")
-
+        view.show(message: "跳转支付订单")
         var properties = [String: Any]()
         let orderId = NSUUID.init().uuidString
         properties["order_id"] = orderId
         properties["order_amount"] = action.purchase.titleLabel?.text
         properties["order_actual_amount"] = "\(originalTotal)"
 
-        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
-        if received {
+        if receivedCoupon() {
             properties["discount_name"] = "限时优惠券"
             properties["discount_amount"] = "10.00"
             properties["discount_type"] = "全网活动"
         }
-        properties["if_use_discount"] = received
+        properties["if_use_discount"] = receivedCoupon()
         SensorsAnalyticsSDK.sharedInstance()?.track("PayOrder", withProperties: properties)
 
         let all = Goods.goodsList()

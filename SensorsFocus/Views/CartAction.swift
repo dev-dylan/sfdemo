@@ -27,6 +27,6 @@ class CartAction: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layoutIfNeeded()
-        purchase.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+        purchase.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
     }
 }

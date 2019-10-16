@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import SnapKit
 
-let loginId = "0"
-let activitiyId = "1"
+let isLoginId = "0"
+let isActivitiyId = "1"
 
 protocol BannerCellDelgate: NSObjectProtocol {
     func didSelectedBanner(_ itemId: String)
@@ -27,14 +27,12 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
     var currentPage = 0
     var images: [[String: String]] {
         var array = [["image": "banner2", "goodsId": "10010"], ["image": "banner3", "goodsId": "10011"]]
-        let didReceived = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
-        if !didReceived {
-            let item = ["image": "banner1", "goodsId": activitiyId]
+        if !receivedCoupon() {
+            let item = ["image": "banner1", "goodsId": isActivitiyId]
             array.insert(item, at: 0)
         }
-        let username = UserDefaults.standard.object(forKey: "username") as? String
-        if username == nil {
-            let item = ["image": "banner0", "goodsId": loginId]
+        if !isLogin() {
+            let item = ["image": "banner0", "goodsId": isLoginId]
             array.insert(item, at: 0)
         }
         return array
@@ -109,11 +107,8 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
 
     func startTimer() {
         self.updateLoopBanner(current: currentPage)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.timer = Timer.init(timeInterval: 5, target: self, selector: #selector(self.bannerLoop), userInfo: nil, repeats: true)
-            RunLoop.current.add(self.timer, forMode: .common)
-            self.timer.fire()
-        }
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(bannerLoop), userInfo: nil, repeats: true)
+        RunLoop.main.add(self.timer, forMode: .common)
     }
 
     @objc func bannerTap() {
@@ -122,11 +117,12 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
     }
 
     @objc func bannerLoop() {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.5, animations: {
             self.scrollView.setContentOffset(CGPoint.init(x: self.bannerWidth * 2, y: 0), animated: false)
-        }
-        currentPage += 1
-        updateLoopBanner(current: currentPage)
+        })
+        self.currentPage += 1
+        self.updateLoopBanner(current: self.currentPage)
+
     }
 
     func updateLoopBanner(current page: Int) {
@@ -151,13 +147,11 @@ class BannerCell: UITableViewCell, UIScrollViewDelegate {
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.timer?.invalidate()
-            self.timer = nil
-            self.timer = Timer.init(timeInterval: 5, target: self, selector: #selector(self.bannerLoop), userInfo: nil, repeats: true)
-            RunLoop.current.add(self.timer, forMode: .common)
-            self.timer.fire()
-        }
+        timer?.invalidate()
+        timer = nil
+
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(bannerLoop), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: .common)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

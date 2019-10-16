@@ -17,7 +17,7 @@ class ProductContentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle =  .none
-        tagText.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+        tagText.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
     }
     @IBAction func favorite(_ sender: Any) {
 

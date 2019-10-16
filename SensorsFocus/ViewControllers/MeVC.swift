@@ -29,8 +29,7 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
     }
 
     func didSelectedHeader() {
-        let username = UserDefaults.standard.object(forKey: "username") as? String
-        if username == nil {
+        if isLogin() {
             LoginVC.showLogin(navigationController!, delegate: self)
         }
     }
@@ -39,9 +38,8 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
         let alert = UIAlertController.init(title: "是否确认退出登录？", message: nil, preferredStyle: .alert)
         let left = UIAlertAction.init(title: "取消", style: .default, handler: nil)
         let right = UIAlertAction.init(title: "确认", style: .default) { (_) in
-            UserDefaults.standard.removeObject(forKey: "username")
+            saveUsername("")
             self.reloadUserInfo()
-            print("退出登录")
         }
         alert.addAction(left)
         alert.addAction(right)
@@ -50,25 +48,11 @@ class MeVC: BaseVC, MeAdapterDelegate, LoginSuccessDelegate {
 
     func loginSuccess() {
         self.reloadUserInfo()
-        if pop == nil {
-            pop = LoginSuccess.instanceItem()
-            let window = UIApplication.shared.keyWindow
-            window?.addSubview(pop!)
-            pop?.toHome.addTarget(self, action: #selector(toHomeAction), for: .touchUpInside)
-            pop!.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
-        }
-    }
-
-    @objc func toHomeAction() {
-        self.tabBarController?.selectedIndex = 0
-        pop?.removeFromSuperview()
+        LoginSuccess.show()
     }
 
     func reloadUserInfo() {
-        let username = UserDefaults.standard.object(forKey: "username") as? String
-        adapter.username = username
+        adapter.username = currentUsername()
         adapter.reload()
     }
 }

@@ -29,6 +29,8 @@
 		FC38215D2339C1BC00213FFD /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38215C2339C1BC00213FFD /* MeVC.swift */; };
 		FC3B9E022339EA20003E19D5 /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B9E012339EA20003E19D5 /* BaseAdapter.swift */; };
 		FC3B9E04233A0163003E19D5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B9E03233A0163003E19D5 /* UIColor.swift */; };
+		FC54666B23570F6300AB8054 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC54666A23570F6300AB8054 /* Store.swift */; };
+		FC54666D235713BB00AB8054 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC54666C235713BB00AB8054 /* Track.swift */; };
 		FC62CB64234F2699002A80FE /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC62CB63234F2699002A80FE /* Placeholder.swift */; };
 		FC7438962355CDD200CE9C97 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7438952355CDD200CE9C97 /* ActivityVC.swift */; };
 		FC7C37E3233A07A0007354CD /* ItemsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37E2233A07A0007354CD /* ItemsAdapter.swift */; };
@@ -38,7 +40,6 @@
 		FC7C37EB233A0844007354CD /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37EA233A0844007354CD /* TopicCell.swift */; };
 		FC7C37ED233A084F007354CD /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C37EC233A084F007354CD /* ItemCell.swift */; };
 		FC7C37EF233A085C007354CD /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7C37EE233A085C007354CD /* ItemCell.xib */; };
-		FC7EED4E233E191A009E7CCF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7EED4D233E191A009E7CCF /* TabBarVC.swift */; };
 		FC7EED50233E1A00009E7CCF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7EED4F233E1A00009E7CCF /* LoginVC.swift */; };
 		FC7EED52233E1A0A009E7CCF /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7EED51233E1A0A009E7CCF /* LoginVC.xib */; };
 		FC87CC83233A133800455406 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87CC82233A133800455406 /* UIView.swift */; };
@@ -103,6 +104,8 @@
 		FC38215C2339C1BC00213FFD /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		FC3B9E012339EA20003E19D5 /* BaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAdapter.swift; sourceTree = "<group>"; };
 		FC3B9E03233A0163003E19D5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		FC54666A23570F6300AB8054 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		FC54666C235713BB00AB8054 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		FC62CB63234F2699002A80FE /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		FC62CB65234F304E002A80FE /* SensorsFocus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SensorsFocus.entitlements; sourceTree = "<group>"; };
 		FC7438952355CDD200CE9C97 /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		FC7C37EA233A0844007354CD /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		FC7C37EC233A084F007354CD /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		FC7C37EE233A085C007354CD /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
-		FC7EED4D233E191A009E7CCF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		FC7EED4F233E1A00009E7CCF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		FC7EED51233E1A0A009E7CCF /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		FC87CC82233A133800455406 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -214,9 +216,8 @@
 		FC3B9E06233A03C7003E19D5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FC3821562339C19900213FFD /* BaseVC.swift */,
 				FC3617F3234094BD00B6A227 /* NavigationVC.swift */,
-				FC7EED4D233E191A009E7CCF /* TabBarVC.swift */,
+				FC3821562339C19900213FFD /* BaseVC.swift */,
 				FC3821582339C1A400213FFD /* HomeVC.swift */,
 				FC38215A2339C1B100213FFD /* CartVC.swift */,
 				FC38215C2339C1BC00213FFD /* MeVC.swift */,
@@ -298,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				FC1A0073233B57AF00204D6F /* Macro.swift */,
+				FC54666A23570F6300AB8054 /* Store.swift */,
+				FC54666C235713BB00AB8054 /* Track.swift */,
 				FCD07D28233DBAAA00A23C86 /* Goods.swift */,
 				FC3B9E012339EA20003E19D5 /* BaseAdapter.swift */,
 				FC1A0077233C9A4200204D6F /* HomeAdapter.swift */,
@@ -471,8 +474,8 @@
 				FC1A0074233B57AF00204D6F /* Macro.swift in Sources */,
 				FCD07D2F233DF1D000A23C86 /* AvatarCell.swift in Sources */,
 				FC7438962355CDD200CE9C97 /* ActivityVC.swift in Sources */,
-				FC7EED4E233E191A009E7CCF /* TabBarVC.swift in Sources */,
 				FCE32AD32340BF3600EAD953 /* Array.swift in Sources */,
+				FC54666D235713BB00AB8054 /* Track.swift in Sources */,
 				FC7C37EB233A0844007354CD /* TopicCell.swift in Sources */,
 				FCFF9188234DD7FB00D4706A /* CartAction.swift in Sources */,
 				FC1A0078233C9A4200204D6F /* HomeAdapter.swift in Sources */,
@@ -496,6 +499,7 @@
 				FCD07D2D233DEFE900A23C86 /* MeAdapter.swift in Sources */,
 				FC3B9E04233A0163003E19D5 /* UIColor.swift in Sources */,
 				FCF86990234C2EC900AEE351 /* ProductAdapter.swift in Sources */,
+				FC54666B23570F6300AB8054 /* Store.swift in Sources */,
 				FCE32AD52341A51B00EAD953 /* ProductVC.swift in Sources */,
 				FCE32AE42341FC8700EAD953 /* ProductDetailCell.swift in Sources */,
 				FC38215B2339C1B100213FFD /* CartVC.swift in Sources */,

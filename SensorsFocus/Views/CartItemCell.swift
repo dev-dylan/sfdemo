@@ -44,7 +44,7 @@ class CartItemCell: UITableViewCell {
         shadowContent.layer.cornerRadius = kCornerRadius
         shadowContent.setShadow()
 
-        tagLabel.layer.borderColor = UIColor.init(hexString: "E04531").cgColor
+        tagLabel.layer.borderColor = UIColor.hex("E04531").cgColor
         tagLabel.layer.borderWidth = 0.5
 
         contentContainer.layer.cornerRadius = kCornerRadius
@@ -122,13 +122,12 @@ class CartItemCell: UITableViewCell {
 
     @IBAction func couponAction(_ sender: Any) {
 
-//        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey)
-//        if received {
-//            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
-//            return
-//        }
+        if receivedCoupon() {
+            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
+            return
+        }
 
-        UserDefaults.standard.set(true, forKey: receivedActivityCouponKey)
+        saveCouponFlag(true)
         let properties = ["discount_name": "限时优惠券", "discount_amount": "10.00", "discount_type": "全网活动"]
         SensorsAnalyticsSDK.sharedInstance()?.track("ReceiveDiscount", withProperties: properties)
         delegate.updatedCurrentGoodsItem()
@@ -137,10 +136,10 @@ class CartItemCell: UITableViewCell {
     }
 
     func updateCoupon(_ hasCoupon: Bool) {
-        let received = UserDefaults.standard.bool(forKey: receivedActivityCouponKey) && hasCoupon
+        let received = receivedCoupon() && hasCoupon
         couponHeight.constant = received ? 40.0 : 0.0
         couponContainer.isHidden = !received
-        contentContainer.backgroundColor = received ? .init(hexString: "F9F9F9") : .white
+        contentContainer.backgroundColor = received ? .hex("F9F9F9") : .white
         self.layoutIfNeeded()
     }
 }

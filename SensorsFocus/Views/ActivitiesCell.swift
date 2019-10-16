@@ -20,7 +20,6 @@ class ActivitiesCell: UITableViewCell {
         self.backgroundColor = kUnderColor
         shadowContent.layer.cornerRadius = kCornerRadius
         shadowContent.setShadow()
-        //品质生活渐变色
         for item in containers {
             let tap = UITapGestureRecognizer.init(target: self, action: #selector(containerTap))
             item.addGestureRecognizer(tap)

@@ -37,11 +37,11 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
 
         purchase.layer.cornerRadius = 17.5
         purchase.layer.masksToBounds = true
-        purchase.gradientColor(.init(hexString: "FFBA01"), to: .init(hexString: "FFA602"))
+        purchase.gradientColor(.hex("FFBA01"), to: .hex("FFA602"))
 
         addCart.layer.cornerRadius = 17.5
         addCart.layer.masksToBounds = true
-        addCart.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+        addCart.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
 
         number.layer.masksToBounds = true
         number.layer.cornerRadius = 7.5

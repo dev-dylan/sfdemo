@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import WebKit
 
-let receivedActivityCouponKey = "double_eleven_did_received"
-
 class ActivityVC: BaseVC {
 
     var urlStr: String?
@@ -35,9 +33,8 @@ class ActivityVC: BaseVC {
         let request = URLRequest.init(url: url!)
         webview.load(request)
 
-        //判断是否为活动页面
-        UserDefaults.standard.set(true, forKey: receivedActivityCouponKey)
-        UserDefaults.standard.synchronize()
+        //TODO: 判断是否为活动页面
+        saveCouponFlag(true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

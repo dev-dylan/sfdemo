@@ -30,7 +30,7 @@ class TopicCell: UITableViewCell {
             container.addGestureRecognizer(tap)
         }
         let desc = descs[0]
-        desc.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+        desc.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
     }
 
     @objc func containerTap(_ gesture: UITapGestureRecognizer) {
@@ -38,17 +38,17 @@ class TopicCell: UITableViewCell {
 
         for index in 0..<titles.count {
             let title = titles[index]
-            title.textColor = (selected == index ? .init(hexString: "DD422F") : .init(hexString: "1F2D3D"))
+            title.textColor = (selected == index ? .hex("DD422F") : .hex("1F2D3D"))
         }
 
         for index in 0..<descs.count {
             let desc = descs[index]
             if selected == index {
-                desc.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+                desc.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
             } else {
                 desc.gradientColor( kUnderColor, to: kUnderColor)
             }
-            desc.setTitleColor((selected == index ? .white : .init(hexString: "5E6D82")), for: .normal)
+            desc.setTitleColor((selected == index ? .white : .hex("5E6D82")), for: .normal)
         }
 
         delegate?.didSelectedTopic(index: selected)

@@ -19,7 +19,7 @@ class MeAdapter: BaseAdapter, AvatarCellDelegate {
     let productSection = 1
     var adapter: ItemsAdapter?
     weak var delegate: MeAdapterDelegate?
-    public var username: String?
+    public var username: String!
 
     init(_ tableView: UITableView, delegate: MeAdapterDelegate) {
         super.init()
@@ -56,8 +56,8 @@ class MeAdapter: BaseAdapter, AvatarCellDelegate {
         if indexPath.row == 0 {
             let cell = (tableView.dequeueReusableCell(withIdentifier: "AvatarCell")) as? AvatarCell
             cell?.delegate = self
-            cell?.nickname.text = username ?? "神策用户"
-            cell?.logout.isHidden = username == nil
+            cell?.nickname.text = username.isEmpty ? "点击注册" : username
+            cell?.logout.isHidden = username!.isEmpty
             return cell!
         }
         return (tableView.dequeueReusableCell(withIdentifier: "BillsCell"))!

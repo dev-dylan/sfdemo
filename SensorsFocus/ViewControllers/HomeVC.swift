@@ -12,6 +12,7 @@ import UIKit
 class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
 
     var adapter: HomeAdapter!
+    var activityToLogin = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
         container.addSubview(search)
 
         let text = UILabel.init(frame: .init(x: 35, y: 8, width: 240, height: 14))
+        //TODO: 修改文字
         text.text = "国庆假期出行热搜"
         text.font = .systemFont(ofSize: 13)
         text.textColor = .lightGray
@@ -51,21 +53,37 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
         adapter.reload()
     }
 
+    //action methods
+    @objc func photosTap() {
+        view.show(message: "点击相机")
+    }
+
+    @objc func searchTap() {
+        view.show(message: "点击搜索框")
+    }
+
+    //delgate methods
     func didSelectedTopic(index: Int) {
         adapter.adapter?.shuffle()
     }
 
     func didSelectedBanner(_ itemId: String) {
-        if itemId == loginId {
+        if itemId == isLoginId {
             LoginVC.showLogin(navigationController!, delegate: self)
         }
 
-        if itemId == activitiyId {
-            ActivityVC.showActivityScreen(navigationController!, urlStr: "https://www.baidu.com")
+        if itemId == isActivitiyId {
+            if isLogin() {
+                self.showActivityScreen()
+            } else {
+                activityToLogin = true
+                LoginVC.showLogin(navigationController!, delegate: self)
+            }
         }
 
         var item: GoodsItem?
         for sub in Goods.fakeGoodsList() {
+            //TODO: referrer 字段替换
             let subId = sub["goodsId"]
             if subId == itemId {
                 item = sub
@@ -82,13 +100,13 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
 
     func loginSuccess() {
         adapter.reload()
+        if activityToLogin {
+            self.showActivityScreen()
+        }
     }
 
-    @objc func photosTap() {
-        view.show(message: "点击相机")
-    }
-
-    @objc func searchTap() {
-        view.show(message: "点击搜索框")
+    //custom mehtods
+    func showActivityScreen() {
+        ActivityVC.showActivityScreen(navigationController!, urlStr: "https://www.baidu.com")
     }
 }

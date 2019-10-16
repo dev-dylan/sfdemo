@@ -48,27 +48,22 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         password.isSecureTextEntry = true
         username.clearButtonMode = .whileEditing
         password.clearButtonMode = .whileEditing
-        usernameIndicator.backgroundColor = .init(hexString: "DFDFDF")
-        passwordIndicator.backgroundColor = .init(hexString: "DFDFDF")
+        usernameIndicator.backgroundColor = .hex("DFDFDF")
+        passwordIndicator.backgroundColor = .hex("DFDFDF")
         submit.layer.cornerRadius = 5
         submit.layer.masksToBounds = true
-        print("登录页面 didLoad")
     }
 
     @IBAction func submitAction(_ sender: Any) {
-
         if username.text!.isEmpty {
             return
         }
-
         if password.text!.isEmpty {
             return
         }
-
         let name = username.text!
         SensorsAnalyticsSDK.sharedInstance()?.track("RegisterResult", withProperties: ["account": name, "is_success": true])
-        UserDefaults.standard.set(name, forKey: "username")
-        UserDefaults.standard.synchronize()
+        saveUsername(name)
         self.dismiss(animated: true) {
             self.delegate?.loginSuccess()
         }
@@ -80,8 +75,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         submit.isEnabled = false
-        usernameIndicator.backgroundColor = .init(hexString: "DFDFDF")
-        passwordIndicator.backgroundColor = .init(hexString: "DFDFDF")
+        usernameIndicator.backgroundColor = .hex("DFDFDF")
+        passwordIndicator.backgroundColor = .hex("DFDFDF")
         if textField == username {
             usernameIndicator.backgroundColor = .red
         }
@@ -92,14 +87,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         submit.isEnabled = true
-        usernameIndicator.backgroundColor = .init(hexString: "DFDFDF")
-        passwordIndicator.backgroundColor = .init(hexString: "DFDFDF")
+        usernameIndicator.backgroundColor = .hex("DFDFDF")
+        passwordIndicator.backgroundColor = .hex("DFDFDF")
 
         let hightlight = !username.text!.isEmpty && !password.text!.isEmpty
         if hightlight {
-            submit.gradientColor(.init(hexString: "E5281A"), to: .init(hexString: "FF6751"))
+            submit.gradientColor(.hex("E5281A"), to: .hex("FF6751"))
         } else {
-            submit.gradientColor(.init(hexString: "E9F0F7"), to: .init(hexString: "E9F0F7"))
+            submit.gradientColor(.hex("E9F0F7"), to: .hex("E9F0F7"))
         }
         submit.setTitleColor( hightlight ? .white : .lightGray, for: .normal)
     }
