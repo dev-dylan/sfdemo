@@ -15,28 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        self.setupSensorsAnalytics(launchOptions)
+        Track.setupSensorsAnalytics(launchOptions)
         self.setupJGPush(launchOptions)
         return true
-    }
-
-    func setupSensorsAnalytics(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        let serverURL = "http://sf03analyst2.datasink.sensorsdata.cn/sa?project=default&token=59fe187bf5724d84"
-        let configOptions = SAConfigOptions.init(serverURL: serverURL, launchOptions: launchOptions)
-        configOptions.autoTrackEventType = [.eventTypeAppStart, .eventTypeAppEnd, .eventTypeAppClick, .eventTypeAppViewScreen]
-        configOptions.enableTrackAppCrash = true
-        SensorsAnalyticsSDK.start(configOptions: configOptions)
-        let sdk = SensorsAnalyticsSDK.sharedInstance()
-        sdk?.registerSuperProperties(["platform_type": "iOS", "testKey": "testValue"])
-        sdk?.registerDynamicSuperProperties({ () -> [String: Any] in
-            return ["testRandomNum": Int.random(in: 0...100)]
-        })
-        sdk?.enableLog(false)
-        sdk?.addWebViewUserAgentSensorsDataFlag()
-        sdk?.trackInstallation("AppInstall", withProperties: ["testInstall": "testValue"])
-        sdk?.enableTrackGPSLocation(true)
-        sdk?.enableTrackScreenOrientation(true)
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -108,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
         } else if alert is String {
             properties["$sf_msg_content"] = alert
         }
-        SensorsAnalyticsSDK.sharedInstance()?.track("AppOpenNotification", withProperties: properties)
+        Track.track("AppOpenNotification", properties: properties)
 
         if !urlStr.isEmpty {
             let root = self.window?.rootViewController as? UITabBarController

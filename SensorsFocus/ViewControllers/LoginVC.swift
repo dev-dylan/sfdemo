@@ -62,7 +62,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             return
         }
         let name = username.text!
-        SensorsAnalyticsSDK.sharedInstance()?.track("RegisterResult", withProperties: ["account": name, "is_success": true])
+        Track.track("RegisterResult", properties: ["account": name, "is_success": true])
         saveUsername(name)
         self.dismiss(animated: true) {
             self.delegate?.loginSuccess()

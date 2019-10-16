@@ -59,7 +59,7 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
 
         var properties = self.trackPorperties()
         properties["screen_source"] = item!["referrer"] != nil ? item!["referrer"] : "feed"
-        SensorsAnalyticsSDK.sharedInstance()?.track("CommodityDetail", withProperties: properties)
+        Track.track("CommodityDetail", properties: properties)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,13 +100,13 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
         properties["order_amount"] = item!["price"]
         properties["order_actual_amount"] = item!["original_price"]
         properties["if_use_discount"] = false
-        SensorsAnalyticsSDK.sharedInstance()?.track("PayOrder", withProperties: properties)
+        Track.track("PayOrder", properties: properties)
 
         var pro = self.trackPorperties()
         pro["order_id"] = orderId
         pro["commodity_quantity"] = "1"
         pro["total_price_of_commodity"] = item!["price"]
-        SensorsAnalyticsSDK.sharedInstance()?.track("PayOrderDetail", withProperties: pro)
+        Track.track("PayOrderDetail", properties: pro)
     }
 
     @IBAction func addCartAction(_ sender: Any) {
@@ -117,6 +117,6 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
         number.text = "\(Goods.goodsList().count)"
         var properties = self.trackPorperties()
         properties["commodity_quantity"] = number.text
-        SensorsAnalyticsSDK.sharedInstance()?.track("AddToShoppingCart", withProperties: properties)
+        Track.track("AddToShoppingCart", properties: properties)
     }
 }

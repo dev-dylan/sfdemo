@@ -109,7 +109,7 @@ class CartVC: BaseVC, CartAdapterDelegate {
             properties["discount_type"] = "全网活动"
         }
         properties["if_use_discount"] = receivedCoupon()
-        SensorsAnalyticsSDK.sharedInstance()?.track("PayOrder", withProperties: properties)
+        Track.track("PayOrder", properties: properties)
 
         let all = Goods.goodsList()
         var total = 0.0
@@ -128,7 +128,7 @@ class CartVC: BaseVC, CartAdapterDelegate {
             pro["present_price"] =  item["price"]
             pro["commodity_quantity"] =  "\(total)"
             pro["total_price_of_commodity"] =  "\(total)"
-            SensorsAnalyticsSDK.sharedInstance()?.track("PayOrderDetail", withProperties: pro)
+            Track.track("PayOrderDetail", properties: pro)
         }
     }
 
