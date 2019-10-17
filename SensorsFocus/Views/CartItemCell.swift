@@ -121,10 +121,10 @@ class CartItemCell: UITableViewCell {
     }
 
     @IBAction func couponAction(_ sender: Any) {
-        if receivedCoupon() {
-            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
-            return
-        }
+//        if receivedCoupon() {
+//            self.managerController()?.view.show(message: "已领取成功，请勿重复领取")
+//            return
+//        }
         delegate.updatedCurrentGoodsItem()
         let navc = self.managerController()?.navigationController
         ActivityVC.showActivityScreen(navc!, urlStr: kActivityURL)

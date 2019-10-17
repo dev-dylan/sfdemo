@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landspace" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-QI-w6x">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landspace.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-QI-w6x">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <viewLayoutGuide key="safeArea" id="F2d-UK-l5y"/>
                             </imageView>
@@ -28,6 +28,7 @@
                             <constraint firstAttribute="trailing" secondItem="f6e-QI-w6x" secondAttribute="trailing" id="6ui-us-r23"/>
                             <constraint firstItem="f6e-QI-w6x" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="M6H-lS-WHJ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="hZI-vB-Qr9"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="landspace" width="2160" height="3840"/>
+        <image name="landspace.png" width="2160" height="3840"/>
     </resources>
 </document>

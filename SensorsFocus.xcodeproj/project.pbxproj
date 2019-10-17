@@ -43,6 +43,7 @@
 		FC7EED50233E1A00009E7CCF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7EED4F233E1A00009E7CCF /* LoginVC.swift */; };
 		FC7EED52233E1A0A009E7CCF /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7EED51233E1A0A009E7CCF /* LoginVC.xib */; };
 		FC87CC83233A133800455406 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87CC82233A133800455406 /* UIView.swift */; };
+		FC89A8A023581A54002DE9D3 /* landspace.png in Resources */ = {isa = PBXBuildFile; fileRef = FC89A89F23581A54002DE9D3 /* landspace.png */; };
 		FC969E5F23505F0B0039BD15 /* LoginSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC969E5E23505F0B0039BD15 /* LoginSuccess.swift */; };
 		FC969E6123505F190039BD15 /* LoginSuccess.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC969E6023505F190039BD15 /* LoginSuccess.xib */; };
 		FC969E652351B47A0039BD15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC969E642351B47A0039BD15 /* LaunchScreen.storyboard */; };
@@ -119,6 +120,7 @@
 		FC7EED4F233E1A00009E7CCF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		FC7EED51233E1A0A009E7CCF /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		FC87CC82233A133800455406 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		FC89A89F23581A54002DE9D3 /* landspace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landspace.png; sourceTree = "<group>"; };
 		FC969E5E23505F0B0039BD15 /* LoginSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSuccess.swift; sourceTree = "<group>"; };
 		FC969E6023505F190039BD15 /* LoginSuccess.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginSuccess.xib; sourceTree = "<group>"; };
 		FC969E642351B47A0039BD15 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		FC3B9E09233A03D3003E19D5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FC89A89F23581A54002DE9D3 /* landspace.png */,
 				FCAB8782234F34B200FC131C /* SensorsFocus-Bridging-Header.h */,
 				FC62CB65234F304E002A80FE /* SensorsFocus.entitlements */,
 				FCD07D2A233DE99800A23C86 /* fake.json */,
@@ -391,6 +394,7 @@
 				FC1A0082233CAFBB00204D6F /* FavoriteCell.xib in Resources */,
 				FC969E6123505F190039BD15 /* LoginSuccess.xib in Resources */,
 				FC38212B2339C06500213FFD /* Assets.xcassets in Resources */,
+				FC89A8A023581A54002DE9D3 /* landspace.png in Resources */,
 				FC195540233B0D2300A372FA /* ActivitiesCell.xib in Resources */,
 				FC969E652351B47A0039BD15 /* LaunchScreen.storyboard in Resources */,
 				FCD07D33233DF1ED00A23C86 /* AvatarCell.xib in Resources */,
