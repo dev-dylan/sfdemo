@@ -82,6 +82,7 @@ class CartVC: BaseVC, CartAdapterDelegate {
         action.allSelected.isSelected = !unselected
         action.price.text = "￥\(orderTotal)"
         action.allText.text = unselected ? "全选" : "取消全选"
+        action.freight.isHidden = allNum == 0
         action.purchase.setTitle(allNum > 0 ? "结算(\(allNum))" : "结算", for: .normal)
         adapter.items = all
         adapter.reload()
