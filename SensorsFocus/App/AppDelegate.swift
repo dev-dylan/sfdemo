@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
 
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
-       let userInfo = response.notification.request.content.userInfo
+        let userInfo = response.notification.request.content.userInfo
         if response.notification.request.trigger is UNPushNotificationTrigger {
             JPUSHService.handleRemoteNotification(userInfo)
             self.trackSFAppNotification(userInfo)
@@ -67,9 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
             let dic = json as? [String: Any]
             properties["$sf_plan_id"] = dic?["sf_plan_id"]
             properties["$sf_plan_name"] = dic?["sf_plan_name"]
-            properties["$sf_audience_id"] = dic?["sf_audience_id"]
+            //TODO: 服务端类型返回为 NULL，怎么处理
+            let audienceId = dic?["sf_audience_id"] as? String
+            if audienceId != nil && audienceId != "null" && !audienceId!.isEmpty {
+                properties["$sf_audience_id"] = dic?["sf_audience_id"]
+            }
             properties["$sf_plan_strategy_id"] = dic?["sf_plan_strategy_id"]
-            if dic?["$sf_landing_type"] as? String == "LINK" {
+            if dic?["sf_landing_type"] as? String == "LINK" {
                 properties["$sf_link_url"] = dic?["sf_link_url"]
                 urlStr = (dic?["sf_link_url"] as? String)!
             }

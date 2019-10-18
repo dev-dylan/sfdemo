@@ -62,6 +62,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             return
         }
         let name = username.text!
+        Track.login(name)
         Track.track("RegisterResult", properties: ["account": name, "is_success": true])
         saveUsername(name)
         self.dismiss(animated: true) {

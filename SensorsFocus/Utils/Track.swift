@@ -26,6 +26,12 @@ class Track {
         sdk?.trackInstallation("AppInstall", withProperties: ["testInstall": "testValue"])
         sdk?.enableTrackGPSLocation(true)
         sdk?.enableTrackScreenOrientation(true)
+        sdk?.enableVisualizedAutoTrack()
+        sdk?.enableHeatMap()
+    }
+
+    static func login(_ name: String) {
+        SensorsAnalyticsSDK.sharedInstance()?.login(name)
     }
 
     static func track(_ event: String, properties: [String: Any]) {

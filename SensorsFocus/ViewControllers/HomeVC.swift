@@ -102,6 +102,8 @@ class HomeVC: BaseVC, HomeAdapterDelegate, LoginSuccessDelegate {
         adapter.reload()
         if activityToLogin {
             self.showActivityScreen()
+        } else {
+            LoginSuccess.show()
         }
     }
 

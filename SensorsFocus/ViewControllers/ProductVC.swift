@@ -95,11 +95,16 @@ class ProductVC: BaseVC, ProductAdapterDelegate {
     @IBAction func purchaseAction(_ sender: Any) {
         view.show(message: "立即购买")
         var properties = [String: Any]()
-        let orderId = NSUUID.init().uuidString
+        let orderId = Int.random(in: 0...100000)
         properties["order_id"] = orderId
         properties["order_amount"] = item!["price"]
         properties["order_actual_amount"] = item!["original_price"]
-        properties["if_use_discount"] = false
+        if receivedCoupon() {
+            properties["discount_name"] = "限时优惠券"
+            properties["discount_amount"] = "10.00"
+            properties["discount_type"] = "全网活动"
+        }
+        properties["if_use_discount"] = receivedCoupon()
         Track.track("PayOrder", properties: properties)
 
         var pro = self.trackPorperties()

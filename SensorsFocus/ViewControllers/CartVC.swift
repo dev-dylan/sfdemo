@@ -11,6 +11,7 @@ import UIKit
 class CartVC: BaseVC, CartAdapterDelegate {
 
     var originalTotal = 0.0
+    var orderTotal = 0.0
     var items = [GoodsItem]()
     var adapter: CartAdapter!
     var isSubVC = false
@@ -52,20 +53,22 @@ class CartVC: BaseVC, CartAdapterDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        action.purchase.isEnabled = Goods.goodsList().count > 0
         self.updateCartItems()
     }
 
     func updateCartItems() {
         let all = Goods.goodsList()
         var unselected = false
-        var total = 0.0
+        orderTotal = 0.0
+        originalTotal = 0.0
         var allNum = 0
         for item in all {
             if item["select"] == "1" {
                 let price = Double(item["price"]!) ?? .nan
                 let original = Double(item["original_price"]!) ?? .nan
                 let num = Double(item["num"]!) ?? .nan
-                total += price * num
+                orderTotal += price * num
                 originalTotal += original * num
                 allNum += 1
             } else {
@@ -77,7 +80,7 @@ class CartVC: BaseVC, CartAdapterDelegate {
         }
 
         action.allSelected.isSelected = !unselected
-        action.price.text = "￥\(total)"
+        action.price.text = "￥\(orderTotal)"
         action.allText.text = unselected ? "全选" : "取消全选"
         action.purchase.setTitle(allNum > 0 ? "结算(\(allNum))" : "结算", for: .normal)
         adapter.items = all
@@ -98,9 +101,9 @@ class CartVC: BaseVC, CartAdapterDelegate {
     @objc func purchaseAction(_ sender: Any) {
         view.show(message: "跳转支付订单")
         var properties = [String: Any]()
-        let orderId = NSUUID.init().uuidString
+        let orderId = Int.random(in: 0...100000)
         properties["order_id"] = orderId
-        properties["order_amount"] = action.purchase.titleLabel?.text
+        properties["order_amount"] = "\(orderTotal)"
         properties["order_actual_amount"] = "\(originalTotal)"
 
         if receivedCoupon() {
@@ -126,8 +129,8 @@ class CartVC: BaseVC, CartAdapterDelegate {
             pro["second_commodity"] = item["second_commodity"]
             pro["original_price"] = item["original_price"]
             pro["present_price"] =  item["price"]
-            pro["commodity_quantity"] =  "\(total)"
-            pro["total_price_of_commodity"] =  "\(total)"
+            pro["commodity_quantity"] =  "\(num)"
+            pro["total_price_of_commodity"] =  "\(price * num)"
             Track.track("PayOrderDetail", properties: pro)
         }
     }

@@ -60,6 +60,7 @@ class CartItemCell: UITableViewCell {
         content.text = item["content"]
         price.text = "￥ \(item["price"] ?? "0")"
         sku.setTitle(item["sku"], for: .normal)
+        storeName.setTitle(item["store"], for: .normal)
         number.text = item["num"]
         if item["num"] == "1" {
             reduce.isEnabled = false
