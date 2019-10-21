@@ -34,6 +34,10 @@ class Track {
         SensorsAnalyticsSDK.sharedInstance()?.login(name)
     }
 
+    static func registerPush(_ pushId: String) {
+        SensorsAnalyticsSDK.sharedInstance()?.profilePushKey("jgId", pushId: pushId)
+    }
+
     static func track(_ event: String, properties: [String: Any]) {
         SensorsAnalyticsSDK.sharedInstance()?.track(event, withProperties: properties)
     }

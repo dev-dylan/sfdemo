@@ -648,7 +648,7 @@
 				CODE_SIGN_ENTITLEMENTS = SensorsFocus/App/SensorsFocus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = VBGTEN3BX8;
 				INFOPLIST_FILE = SensorsFocus/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -675,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = SensorsFocus/App/SensorsFocus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = VBGTEN3BX8;
 				INFOPLIST_FILE = SensorsFocus/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

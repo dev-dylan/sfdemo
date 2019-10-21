@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, JPUSHRegisterDelegate {
         let advertisingId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         JPUSHService.setup(withOption: launchOptions, appKey: "bbfa3ee756b1b7a4cbf3fc72", channel: "App Store", apsForProduction: false, advertisingIdentifier: advertisingId)
         JPUSHService.registrationIDCompletionHandler { (_, registrationID) in
-            SensorsAnalyticsSDK.sharedInstance()?.profilePushKey("jgId", pushId: registrationID ?? "")
+            Track.registerPush(registrationID ?? "")
         }
     }
 
